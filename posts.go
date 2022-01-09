@@ -488,6 +488,9 @@ func handleViewPost(app *App, w http.ResponseWriter, r *http.Request) error {
 		if !page.IsOwner && silenced {
 			return ErrPostNotFound
 		}
+		if !page.IsOwner && app.cfg.App.PrivateDrafts {
+			return ErrPostNotFound
+		}
 		page.Silenced = silenced
 		err = templates["post"].ExecuteTemplate(w, "post", page)
 		if err != nil {

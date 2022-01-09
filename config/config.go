@@ -155,6 +155,7 @@ type (
 
 		// Access
 		Private bool `ini:"private"`
+		PrivateDrafts bool `ini:"private_drafts"`
 
 		// Additional functions
 		LocalTimeline bool   `ini:"local_timeline"`
